@@ -1,0 +1,14 @@
+@use 'src/globalStyles/colors.scss' as colors;
+
+* {
+  box-sizing: border-box;
+  }
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  color: colors.$text-primary;
+  background-color: colors.$background;
+}
+
