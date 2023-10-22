@@ -26,6 +26,7 @@ function Home() {
   //States
   const [weatherDays, setWeatherDays] = useState<VisibleData[]>([]);
   const [pollutionDays, setPollutionDays] = useState<PollutionItem[]>([]);
+  const [dayIndex, setDayIndex] = useState(0);
 
   const handleFetchData = useCallback(async () => {
     try {
@@ -55,8 +56,8 @@ function Home() {
     <div className="base-page">
       <WeatherCard
         city="Wow"
-        forecast={weatherDays[0] || {}}
-        pollution={pollutionDays[0]}
+        forecast={weatherDays[dayIndex] || {}}
+        pollution={pollutionDays[dayIndex]}
       />
       <div className="home-container__day-widgets">
         {weatherDays.map((weatherDay, index) => (
@@ -67,7 +68,12 @@ function Home() {
                 : ""
             }
           >
-            <DayWidget key={index} forecast={weatherDay} />
+            <DayWidget
+              key={index}
+              current={dayIndex === index}
+              forecast={weatherDay}
+              handleOnClick={() => setDayIndex(index)}
+            />
           </div>
         ))}
       </div>

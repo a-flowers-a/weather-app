@@ -5,4 +5,6 @@ export interface DayWidgetProps {
   forecast: Partial<VisibleData>;
   /**Styles to show it's the current weather */
   current?: boolean;
+  /**Function to handle on button click */
+  handleOnClick: () => void;
 }
