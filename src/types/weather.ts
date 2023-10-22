@@ -1,14 +1,10 @@
-export interface VisibleData {
-  /**Temperature */
-  temperature: number;
-  /**String description for the weather */
-  description: string;
-  /**Wind's speed */
-  wind: number;
-  /**CHance of rain's percentage 0 to 1 */
-  chanceOfRain: number;
+export enum MainWeatherCondition {
+  Thunderstorm = "Thunderstorm",
+  Rain = "Rain",
+  Snow = "Snow",
+  Clouds = "Clouds",
+  Clear = "Clear",
 }
-
 export interface ForecastListItem {
   dt: number;
   main: {
@@ -22,7 +18,14 @@ export interface ForecastListItem {
     humidity: number;
     temp_kf: number;
   };
-  weather: [{ id: number; main: string; description: string; icon: string }];
+  weather: [
+    {
+      id: number;
+      main: MainWeatherCondition;
+      description: string;
+      icon: string;
+    }
+  ];
   clouds: { all: number };
   wind: { speed: number; deg: number; gust: number };
   visibility: number;
@@ -48,10 +51,16 @@ export interface ForecastResponse {
     sunset: number;
   };
 }
-export enum MainWeatherCondition {
-  Thunderstorm = "thunderstorm",
-  Rain = "rain",
-  Snow = "snow",
-  Clouds = "clouds",
-  Clear = "clear",
+
+export interface VisibleData {
+  /**Temperature */
+  temperature: number;
+  /**String description for the weather */
+  description: string;
+  /**Main weather description */
+  main: MainWeatherCondition;
+  /**Wind's speed */
+  wind: number;
+  /**CHance of rain's percentage 0 to 1 */
+  chanceOfRain: number;
 }

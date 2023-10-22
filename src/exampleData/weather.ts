@@ -1,4 +1,8 @@
-import { ForecastListItem, VisibleData } from "../types/weather";
+import {
+  ForecastListItem,
+  MainWeatherCondition,
+  VisibleData,
+} from "../types/weather";
 
 export const ShortForeCastList: ForecastListItem[] = [
   {
@@ -15,7 +19,12 @@ export const ShortForeCastList: ForecastListItem[] = [
       temp_kf: 0.53,
     },
     weather: [
-      { id: 803, main: "Clouds", description: "broken clouds", icon: "04d" },
+      {
+        id: 803,
+        main: "Clouds" as MainWeatherCondition,
+        description: "broken clouds",
+        icon: "04d",
+      },
     ],
     clouds: { all: 75 },
     wind: { speed: 1.69, deg: 58, gust: 2.68 },
@@ -38,7 +47,12 @@ export const ShortForeCastList: ForecastListItem[] = [
       temp_kf: 2.75,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10d" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10d",
+      },
     ],
     clouds: { all: 82 },
     wind: { speed: 2.36, deg: 155, gust: 2.91 },
@@ -64,7 +78,7 @@ export const ShortForeCastList: ForecastListItem[] = [
     weather: [
       {
         id: 804,
-        main: "Clouds",
+        main: "Clouds" as MainWeatherCondition,
         description: "overcast clouds",
         icon: "04n",
       },
@@ -92,7 +106,7 @@ export const ShortForeCastList: ForecastListItem[] = [
     weather: [
       {
         id: 804,
-        main: "Clouds",
+        main: "Clouds" as MainWeatherCondition,
         description: "overcast clouds",
         icon: "04n",
       },
@@ -109,24 +123,28 @@ export const ShortForeCastList: ForecastListItem[] = [
 export const VisibleDataList: VisibleData[] = [
   {
     temperature: 26.59,
+    main: MainWeatherCondition.Clouds,
     description: "broken clouds",
     wind: 1.69,
     chanceOfRain: 0.17,
   },
   {
     temperature: 25.22,
+    main: MainWeatherCondition.Rain,
     description: "light rain",
     wind: 2.36,
     chanceOfRain: 0.31,
   },
   {
     temperature: 21.46,
+    main: MainWeatherCondition.Clouds,
     description: "overcast clouds",
     wind: 0.88,
     chanceOfRain: 0.13,
   },
   {
     temperature: 17.57,
+    main: MainWeatherCondition.Clouds,
     description: "overcast clouds",
     wind: 0.67,
     chanceOfRain: 0.14,
@@ -148,7 +166,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0.53,
     },
     weather: [
-      { id: 803, main: "Clouds", description: "broken clouds", icon: "04d" },
+      {
+        id: 803,
+        main: "Clouds" as MainWeatherCondition,
+        description: "broken clouds",
+        icon: "04d",
+      },
     ],
     clouds: { all: 75 },
     wind: { speed: 1.69, deg: 58, gust: 2.68 },
@@ -171,7 +194,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 2.75,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10d" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10d",
+      },
     ],
     clouds: { all: 82 },
     wind: { speed: 2.36, deg: 155, gust: 2.91 },
@@ -197,7 +225,7 @@ export const ForecastResponseList: ForecastListItem[] = [
     weather: [
       {
         id: 804,
-        main: "Clouds",
+        main: "Clouds" as MainWeatherCondition,
         description: "overcast clouds",
         icon: "04n",
       },
@@ -225,7 +253,7 @@ export const ForecastResponseList: ForecastListItem[] = [
     weather: [
       {
         id: 804,
-        main: "Clouds",
+        main: "Clouds" as MainWeatherCondition,
         description: "overcast clouds",
         icon: "04n",
       },
@@ -251,7 +279,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 803, main: "Clouds", description: "broken clouds", icon: "04n" },
+      {
+        id: 803,
+        main: "Clouds" as MainWeatherCondition,
+        description: "broken clouds",
+        icon: "04n",
+      },
     ],
     clouds: { all: 68 },
     wind: { speed: 0.5, deg: 162, gust: 1.08 },
@@ -274,7 +307,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 803, main: "Clouds", description: "broken clouds", icon: "04n" },
+      {
+        id: 803,
+        main: "Clouds" as MainWeatherCondition,
+        description: "broken clouds",
+        icon: "04n",
+      },
     ],
     clouds: { all: 69 },
     wind: { speed: 0.78, deg: 162, gust: 1.21 },
@@ -299,7 +337,7 @@ export const ForecastResponseList: ForecastListItem[] = [
     weather: [
       {
         id: 804,
-        main: "Clouds",
+        main: "Clouds" as MainWeatherCondition,
         description: "overcast clouds",
         icon: "04d",
       },
@@ -327,7 +365,7 @@ export const ForecastResponseList: ForecastListItem[] = [
     weather: [
       {
         id: 804,
-        main: "Clouds",
+        main: "Clouds" as MainWeatherCondition,
         description: "overcast clouds",
         icon: "04d",
       },
@@ -355,7 +393,7 @@ export const ForecastResponseList: ForecastListItem[] = [
     weather: [
       {
         id: 804,
-        main: "Clouds",
+        main: "Clouds" as MainWeatherCondition,
         description: "overcast clouds",
         icon: "04d",
       },
@@ -381,7 +419,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10d" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10d",
+      },
     ],
     clouds: { all: 95 },
     wind: { speed: 3.2, deg: 182, gust: 4.31 },
@@ -407,7 +450,7 @@ export const ForecastResponseList: ForecastListItem[] = [
     weather: [
       {
         id: 804,
-        main: "Clouds",
+        main: "Clouds" as MainWeatherCondition,
         description: "overcast clouds",
         icon: "04n",
       },
@@ -433,7 +476,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10n" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10n",
+      },
     ],
     clouds: { all: 100 },
     wind: { speed: 1.12, deg: 145, gust: 2.3 },
@@ -457,7 +505,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10n" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10n",
+      },
     ],
     clouds: { all: 100 },
     wind: { speed: 0.58, deg: 127, gust: 1.7 },
@@ -481,7 +534,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10n" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10n",
+      },
     ],
     clouds: { all: 99 },
     wind: { speed: 0.54, deg: 95, gust: 1.23 },
@@ -505,7 +563,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10d" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10d",
+      },
     ],
     clouds: { all: 88 },
     wind: { speed: 0.7, deg: 83, gust: 0.77 },
@@ -529,7 +592,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10d" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10d",
+      },
     ],
     clouds: { all: 81 },
     wind: { speed: 0.54, deg: 88, gust: 1.35 },
@@ -553,7 +621,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10d" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10d",
+      },
     ],
     clouds: { all: 70 },
     wind: { speed: 1.67, deg: 158, gust: 2.11 },
@@ -577,7 +650,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10d" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10d",
+      },
     ],
     clouds: { all: 83 },
     wind: { speed: 1.66, deg: 194, gust: 3.58 },
@@ -601,7 +679,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 501, main: "Rain", description: "moderate rain", icon: "10n" },
+      {
+        id: 501,
+        main: "Rain" as MainWeatherCondition,
+        description: "moderate rain",
+        icon: "10n",
+      },
     ],
     clouds: { all: 100 },
     wind: { speed: 1.8, deg: 215, gust: 2.88 },
@@ -625,7 +708,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10n" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10n",
+      },
     ],
     clouds: { all: 90 },
     wind: { speed: 2.09, deg: 204, gust: 3.49 },
@@ -649,7 +737,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10n" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10n",
+      },
     ],
     clouds: { all: 93 },
     wind: { speed: 1.31, deg: 209, gust: 2.02 },
@@ -675,7 +768,7 @@ export const ForecastResponseList: ForecastListItem[] = [
     weather: [
       {
         id: 804,
-        main: "Clouds",
+        main: "Clouds" as MainWeatherCondition,
         description: "overcast clouds",
         icon: "04n",
       },
@@ -703,7 +796,7 @@ export const ForecastResponseList: ForecastListItem[] = [
     weather: [
       {
         id: 802,
-        main: "Clouds",
+        main: "Clouds" as MainWeatherCondition,
         description: "scattered clouds",
         icon: "03d",
       },
@@ -729,7 +822,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10d" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10d",
+      },
     ],
     clouds: { all: 69 },
     wind: { speed: 1.17, deg: 99, gust: 1.28 },
@@ -753,7 +851,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10d" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10d",
+      },
     ],
     clouds: { all: 100 },
     wind: { speed: 1.93, deg: 174, gust: 1.96 },
@@ -777,7 +880,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10d" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10d",
+      },
     ],
     clouds: { all: 100 },
     wind: { speed: 2.18, deg: 225, gust: 3.12 },
@@ -801,7 +909,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 501, main: "Rain", description: "moderate rain", icon: "10n" },
+      {
+        id: 501,
+        main: "Rain" as MainWeatherCondition,
+        description: "moderate rain",
+        icon: "10n",
+      },
     ],
     clouds: { all: 93 },
     wind: { speed: 3.13, deg: 355, gust: 4.61 },
@@ -825,7 +938,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10n" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10n",
+      },
     ],
     clouds: { all: 95 },
     wind: { speed: 1.11, deg: 6, gust: 1.54 },
@@ -849,7 +967,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10n" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10n",
+      },
     ],
     clouds: { all: 91 },
     wind: { speed: 0.65, deg: 125, gust: 0.83 },
@@ -873,7 +996,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10n" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10n",
+      },
     ],
     clouds: { all: 84 },
     wind: { speed: 0.36, deg: 95, gust: 0.61 },
@@ -897,7 +1025,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 803, main: "Clouds", description: "broken clouds", icon: "04d" },
+      {
+        id: 803,
+        main: "Clouds" as MainWeatherCondition,
+        description: "broken clouds",
+        icon: "04d",
+      },
     ],
     clouds: { all: 68 },
     wind: { speed: 1.05, deg: 11, gust: 0.88 },
@@ -920,7 +1053,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 803, main: "Clouds", description: "broken clouds", icon: "04d" },
+      {
+        id: 803,
+        main: "Clouds" as MainWeatherCondition,
+        description: "broken clouds",
+        icon: "04d",
+      },
     ],
     clouds: { all: 59 },
     wind: { speed: 1.77, deg: 35, gust: 1.86 },
@@ -943,7 +1081,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10d" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10d",
+      },
     ],
     clouds: { all: 53 },
     wind: { speed: 1.71, deg: 14, gust: 2.79 },
@@ -967,7 +1110,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10d" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10d",
+      },
     ],
     clouds: { all: 77 },
     wind: { speed: 3.03, deg: 37, gust: 4.64 },
@@ -991,7 +1139,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10n" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10n",
+      },
     ],
     clouds: { all: 100 },
     wind: { speed: 2.02, deg: 24, gust: 3.81 },
@@ -1015,7 +1168,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10n" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10n",
+      },
     ],
     clouds: { all: 97 },
     wind: { speed: 1.87, deg: 356, gust: 2.74 },
@@ -1039,7 +1197,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 500, main: "Rain", description: "light rain", icon: "10n" },
+      {
+        id: 500,
+        main: "Rain" as MainWeatherCondition,
+        description: "light rain",
+        icon: "10n",
+      },
     ],
     clouds: { all: 96 },
     wind: { speed: 1.52, deg: 18, gust: 1.87 },
@@ -1065,7 +1228,7 @@ export const ForecastResponseList: ForecastListItem[] = [
     weather: [
       {
         id: 804,
-        main: "Clouds",
+        main: "Clouds" as MainWeatherCondition,
         description: "overcast clouds",
         icon: "04n",
       },
@@ -1091,7 +1254,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 803, main: "Clouds", description: "broken clouds", icon: "04d" },
+      {
+        id: 803,
+        main: "Clouds" as MainWeatherCondition,
+        description: "broken clouds",
+        icon: "04d",
+      },
     ],
     clouds: { all: 66 },
     wind: { speed: 2.44, deg: 11, gust: 3.07 },
@@ -1114,7 +1282,12 @@ export const ForecastResponseList: ForecastListItem[] = [
       temp_kf: 0,
     },
     weather: [
-      { id: 803, main: "Clouds", description: "broken clouds", icon: "04d" },
+      {
+        id: 803,
+        main: "Clouds" as MainWeatherCondition,
+        description: "broken clouds",
+        icon: "04d",
+      },
     ],
     clouds: { all: 80 },
     wind: { speed: 1.95, deg: 332, gust: 3.4 },

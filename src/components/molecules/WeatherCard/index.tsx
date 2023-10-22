@@ -1,5 +1,9 @@
-//Types
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTemperatureHalf } from "@fortawesome/free-solid-svg-icons";
+//Types & consts
 import { WeatherCardProps } from "./types";
+import { IconMap } from "../../../constants/weather";
+import { MainWeatherCondition } from "../../../types/weather";
 //Styles
 import "./styles.scss";
 
@@ -8,7 +12,10 @@ function WeatherCard({ city, pollution, forecast }: WeatherCardProps) {
     ? `${Math.round(forecast.temperature)}°`
     : "- - -";
   const windSpeed = forecast?.wind ? `${Math.round(forecast?.wind)}` : "- - -";
-  const airQuality = pollution?.main?.aqi ? pollution?.main?.aqi : "- - -";
+  const airQuality = pollution?.main?.aqi || "- - -";
+  const mainWeatherDesc = forecast?.main || ("" as MainWeatherCondition);
+  const iconName = IconMap.get(mainWeatherDesc) || faTemperatureHalf;
+
   return (
     <div className="weather-card">
       <div className="weather-card__header">
@@ -21,13 +28,7 @@ function WeatherCard({ city, pollution, forecast }: WeatherCardProps) {
             {forecast.description || "- - -"}
           </span>
         </div>
-        <div className="weather-card__icon-container">
-          <img
-            className="weather-card__img"
-            src={"dogData.img"}
-            alt="Weather icon"
-          />
-        </div>
+        <FontAwesomeIcon className="weather-card__icon" icon={iconName} />
       </div>
       <div className="weather-card__footer">
         <span>{windSpeed}</span>
