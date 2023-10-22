@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 //Components
 import WeatherCard from "../../components/molecules/WeatherCard";
 import DayWidget from "../../components/atoms/DayWidget";
+import CustomSelect from "../../components/atoms/CustomSelect";
 //Services & helpers
 import {
   createVisDataStruct,
@@ -14,6 +15,7 @@ import { LoaderContext } from "../../context/LoaderProvider/context";
 //Types
 import { VisibleData } from "../../types/weather";
 import { PollutionItem } from "../../types/pollution";
+import { CityOptions, InputName } from "../../constants/inputs";
 //Styles
 import "../../globalStyles/shared.scss";
 import "./styles.scss";
@@ -27,35 +29,48 @@ function Home() {
   const [weatherDays, setWeatherDays] = useState<VisibleData[]>([]);
   const [pollutionDays, setPollutionDays] = useState<PollutionItem[]>([]);
   const [dayIndex, setDayIndex] = useState(0);
+  const [currentCity, setCurrentCity] = useState(CityOptions[0].label);
 
-  const handleFetchData = useCallback(async () => {
-    try {
-      setLoader(true);
-      const [weathers, pollutions] = await Promise.all([
-        getForecast(),
-        getPollution(),
-      ]);
-      const fiveWeatherItems = getPlusFiveDaysItems(weathers.list);
-      const fiveDaysWeather = createVisDataStruct(fiveWeatherItems);
-      const fiveDaysPollution = getFourDaysPollution(pollutions.list);
-      setWeatherDays(fiveDaysWeather);
-      setPollutionDays(fiveDaysPollution);
-    } catch (error) {
-      console.log("error at handleFetchData>>>", error);
-    } finally {
-      setLoader(false);
-    }
-  }, [setLoader]);
+  /**
+   * Calls the endpoints to get the weather and pollution forecast
+   * for the given city, uses function to map and create structure for the
+   * info as the components need so the info can be displayed.
+   * @param latLong latitude and longitude string in format "lat,lon"
+   */
+  const handleFetchData = useCallback(
+    async (latLon: string) => {
+      try {
+        setLoader(true);
+        const [weathers, pollutions] = await Promise.all([
+          getForecast(latLon),
+          getPollution(latLon),
+        ]);
+        const fiveWeatherItems = getPlusFiveDaysItems(weathers.list);
+        const recCity = weathers?.city?.name || "";
+        const fiveDaysWeather = createVisDataStruct(fiveWeatherItems);
+        const fiveDaysPollution = getFourDaysPollution(pollutions.list);
+        setCurrentCity(recCity);
+        setWeatherDays(fiveDaysWeather);
+        setPollutionDays(fiveDaysPollution);
+      } catch (error) {
+        console.log("error at handleFetchData>>>", error);
+      } finally {
+        setLoader(false);
+      }
+    },
+    [setLoader]
+  );
 
+  //First render get forecast for the first position city
   useEffect(() => {
-    handleFetchData();
+    handleFetchData(CityOptions[0].value);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className="base-page">
       <WeatherCard
-        city="Wow"
+        city={currentCity}
         forecast={weatherDays[dayIndex] || {}}
         pollution={pollutionDays[dayIndex]}
       />
@@ -77,7 +92,14 @@ function Home() {
           </div>
         ))}
       </div>
-      <button onClick={handleFetchData}>Refetch data</button>
+      <div className="home-container__select-container">
+        <CustomSelect
+          id={InputName.CitySelect}
+          label="US capital City"
+          options={CityOptions}
+          handleOnChange={(event) => handleFetchData(event.target.value)}
+        />
+      </div>
     </div>
   );
 }

@@ -10,10 +10,12 @@ import { PollutionResponse } from "../types/pollution";
 
 /**
  * Performs GET request to get the forecast for the given city
+ * @param latLong latitude and longitude string in format "lat,lon"
  * @returns
  */
-export function getForecast(): Promise<ForecastResponse> {
-  const url = `${process.env.REACT_APP_BASE_URL}/forecast?q=Mexico City,mx&units=metric&appid=${process.env.REACT_APP_WE_KEY}`;
+export function getForecast(latLong: string): Promise<ForecastResponse> {
+  const [lat, lon] = latLong.split(",");
+  const url = `${process.env.REACT_APP_BASE_URL}/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_WE_KEY}`;
   const axiosAgent = HttppAgent.getAgent();
   return axiosAgent.doRequest({
     method: "GET",
@@ -23,10 +25,12 @@ export function getForecast(): Promise<ForecastResponse> {
 
 /**
  * Performs GET request to get the air pollution
+ * @param latLong latitude and longitude string in format "lat,lon"
  * @returns
  */
-export function getPollution(): Promise<PollutionResponse> {
-  const url = `${process.env.REACT_APP_BASE_URL}/air_pollution/forecast?lat=19.375&lon=-99.125&appid=${process.env.REACT_APP_WE_KEY}`;
+export function getPollution(latLong: string): Promise<PollutionResponse> {
+  const [lat, lon] = latLong.split(",");
+  const url = `${process.env.REACT_APP_BASE_URL}/air_pollution/forecast?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WE_KEY}`;
   const axiosAgent = HttppAgent.getAgent();
   return axiosAgent.doRequest({
     method: "GET",
