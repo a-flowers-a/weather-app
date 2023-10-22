@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 //Components
 import WeatherCard from "../../components/molecules/WeatherCard";
+import DayWidget from "../../components/atoms/DayWidget";
 //Services & helpers
 import {
   createVisDataStruct,
@@ -57,6 +58,19 @@ function Home() {
         forecast={weatherDays[0] || {}}
         pollution={pollutionDays[0]}
       />
+      <div className="home-container__day-widgets">
+        {weatherDays.map((weatherDay, index) => (
+          <div
+            className={
+              index !== weatherDays.length - 1
+                ? "home-container__day-widget-container"
+                : ""
+            }
+          >
+            <DayWidget key={index} forecast={weatherDay} />
+          </div>
+        ))}
+      </div>
       <button onClick={handleFetchData}>Refetch data</button>
     </div>
   );
