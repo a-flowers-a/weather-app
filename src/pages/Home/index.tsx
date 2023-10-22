@@ -62,6 +62,7 @@ function Home() {
       <div className="home-container__day-widgets">
         {weatherDays.map((weatherDay, index) => (
           <div
+            key={index}
             className={
               index !== weatherDays.length - 1
                 ? "home-container__day-widget-container"
@@ -69,7 +70,6 @@ function Home() {
             }
           >
             <DayWidget
-              key={index}
               current={dayIndex === index}
               forecast={weatherDay}
               handleOnClick={() => setDayIndex(index)}

@@ -8,7 +8,7 @@ import {
 import DataIcon from "../DataIcon";
 //Types & consts
 import { WeatherCardProps } from "./types";
-import { IconMap } from "../../../constants/weather";
+import { AirQualityName, IconMap } from "../../../constants/weather";
 import { MainWeatherCondition } from "../../../types/weather";
 //Styles
 import "./styles.scss";
@@ -18,7 +18,8 @@ function WeatherCard({ city, pollution, forecast }: WeatherCardProps) {
     ? `${Math.round(forecast.temperature)}°`
     : "- - -";
   const windSpeed = forecast?.wind ? `${Math.round(forecast?.wind)}` : "- - -";
-  const airQuality = pollution?.main?.aqi || "- - -";
+  const airQualityIndex = pollution?.main?.aqi || -1;
+  const airQualityDesc = AirQualityName.get(airQualityIndex) || "- - -";
   const mainWeatherDesc = forecast?.main || ("" as MainWeatherCondition);
   const iconName = IconMap.get(mainWeatherDesc) || faTemperatureHalf;
 
@@ -44,9 +45,10 @@ function WeatherCard({ city, pollution, forecast }: WeatherCardProps) {
           data={windSpeed}
         />
         <DataIcon
+          dataStyles="weather-card__second-data-icon-data"
           description="Air quality"
           iconName={faGaugeSimple}
-          data={`${airQuality}`}
+          data={airQualityDesc}
         />
       </div>
     </div>

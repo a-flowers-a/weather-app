@@ -8,6 +8,7 @@ function DataIcon({
   containerStyles,
   iconName,
   data,
+  dataStyles,
   description,
   iconStyles,
 }: DataIconProps) {
@@ -17,7 +18,7 @@ function DataIcon({
         className={`data-icon__icon ${iconStyles}`}
         icon={iconName}
       />
-      <span className="data-icon__data">{data}</span>
+      <span className={`data-icon__data ${dataStyles}`}>{data}</span>
       <span className="data-icon__description">{description}</span>
     </div>
   );
