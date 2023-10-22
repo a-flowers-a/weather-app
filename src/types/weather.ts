@@ -53,6 +53,8 @@ export interface ForecastResponse {
 }
 
 export interface VisibleData {
+  /**Date time unix format*/
+  dt: number;
   /**Temperature */
   temperature: number;
   /**String description for the weather */

@@ -122,6 +122,7 @@ export const ShortForeCastList: ForecastListItem[] = [
 
 export const VisibleDataList: VisibleData[] = [
   {
+    dt: 1697922000,
     temperature: 26.59,
     main: MainWeatherCondition.Clouds,
     description: "broken clouds",
@@ -129,6 +130,7 @@ export const VisibleDataList: VisibleData[] = [
     chanceOfRain: 0.17,
   },
   {
+    dt: 1697932800,
     temperature: 25.22,
     main: MainWeatherCondition.Rain,
     description: "light rain",
@@ -136,6 +138,7 @@ export const VisibleDataList: VisibleData[] = [
     chanceOfRain: 0.31,
   },
   {
+    dt: 1697943600,
     temperature: 21.46,
     main: MainWeatherCondition.Clouds,
     description: "overcast clouds",
@@ -143,6 +146,7 @@ export const VisibleDataList: VisibleData[] = [
     chanceOfRain: 0.13,
   },
   {
+    dt: 1697954400,
     temperature: 17.57,
     main: MainWeatherCondition.Clouds,
     description: "overcast clouds",

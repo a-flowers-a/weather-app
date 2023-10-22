@@ -11,6 +11,7 @@ export function createVisDataStruct(list: ForecastListItem[]): VisibleData[] {
   const visibleDataList: VisibleData[] = [];
   list.forEach((forecast) => {
     visibleDataList.push({
+      dt: forecast.dt,
       temperature: forecast.main.temp,
       main: forecast.weather[0].main,
       description: forecast.weather[0].description,

@@ -1,9 +1,11 @@
+import dayjs from "dayjs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTemperatureHalf } from "@fortawesome/free-solid-svg-icons";
 //Types & COnsts
 import { DayWidgetProps } from "./types";
 import { MainWeatherCondition } from "../../../types/weather";
 import { IconMap } from "../../../constants/weather";
+import { WeekdayMap } from "../../../constants/dates";
 //Styles
 import "./styles.scss";
 
@@ -14,6 +16,9 @@ function DayWidget({ current, forecast, handleOnClick }: DayWidgetProps) {
   const mainWeatherDesc = forecast?.main || ("" as MainWeatherCondition);
   const iconName = IconMap.get(mainWeatherDesc) || faTemperatureHalf;
   const colorStyle = current ? "current" : "normal";
+  const weekDayIndex = forecast?.dt ? dayjs.unix(forecast.dt).day() : -1;
+  const weekdayName = WeekdayMap.get(weekDayIndex) || "- - -";
+
   return (
     <button
       onClick={handleOnClick}
@@ -21,7 +26,7 @@ function DayWidget({ current, forecast, handleOnClick }: DayWidgetProps) {
     >
       <span className="day-widget__temp">{temperature}</span>
       <FontAwesomeIcon className="day-widget__icon" icon={iconName} />
-      <span className="day-widget__day">Wed</span>
+      <span className="day-widget__day">{weekdayName}</span>
     </button>
   );
 }
