@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import WeatherCard from "../../components/molecules/WeatherCard";
 import DayWidget from "../../components/atoms/DayWidget";
 import CustomSelect from "../../components/atoms/CustomSelect";
+import MessageModal from "../../components/molecules/MessageModal";
 //Services & helpers
 import {
   createVisDataStruct,
@@ -16,6 +17,7 @@ import { LoaderContext } from "../../context/LoaderProvider/context";
 import { VisibleData } from "../../types/weather";
 import { PollutionItem } from "../../types/pollution";
 import { CityOptions, InputName } from "../../constants/inputs";
+import { ErrorMessage } from "../../constants/weather";
 //Styles
 import "../../globalStyles/shared.scss";
 import "./styles.scss";
@@ -30,6 +32,7 @@ function Home() {
   const [pollutionDays, setPollutionDays] = useState<PollutionItem[]>([]);
   const [dayIndex, setDayIndex] = useState(0);
   const [currentCity, setCurrentCity] = useState(CityOptions[0].label);
+  const [showError, setShowError] = useState(false);
 
   /**
    * Calls the endpoints to get the weather and pollution forecast
@@ -54,6 +57,7 @@ function Home() {
         setPollutionDays(fiveDaysPollution);
       } catch (error) {
         console.log("error at handleFetchData>>>", error);
+        setShowError(true);
       } finally {
         setLoader(false);
       }
@@ -69,6 +73,12 @@ function Home() {
 
   return (
     <div className="base-page">
+      {showError && (
+        <MessageModal
+          message={ErrorMessage.FetchingData}
+          handleClick={() => setShowError(false)}
+        />
+      )}
       <WeatherCard
         city={currentCity}
         forecast={weatherDays[dayIndex] || {}}

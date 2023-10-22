@@ -23,3 +23,7 @@ export const AirQualityName = new Map<number, string>([
   [4, "Poor"],
   [5, "Very poor"],
 ]);
+
+export enum ErrorMessage {
+  FetchingData = "There's been an error fetching the forecast data",
+}
