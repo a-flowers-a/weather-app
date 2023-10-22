@@ -77,7 +77,7 @@ function Home() {
       <div className="home-container__day-widgets">
         {weatherDays.map((weatherDay, index) => (
           <div
-            key={index}
+            key={weatherDay?.dt || index}
             className={
               index !== weatherDays.length - 1
                 ? "home-container__day-widget-container"

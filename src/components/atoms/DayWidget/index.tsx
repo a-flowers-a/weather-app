@@ -5,7 +5,7 @@ import { faTemperatureHalf } from "@fortawesome/free-solid-svg-icons";
 import { DayWidgetProps } from "./types";
 import { MainWeatherCondition } from "../../../types/weather";
 import { IconMap } from "../../../constants/weather";
-import { WeekdayMap } from "../../../constants/dates";
+import { WeekdayFormat } from "../../../constants/dates";
 //Styles
 import "./styles.scss";
 
@@ -16,8 +16,9 @@ function DayWidget({ current, forecast, handleOnClick }: DayWidgetProps) {
   const mainWeatherDesc = forecast?.main || ("" as MainWeatherCondition);
   const iconName = IconMap.get(mainWeatherDesc) || faTemperatureHalf;
   const colorStyle = current ? "current" : "normal";
-  const weekDayIndex = forecast?.dt ? dayjs.unix(forecast.dt).day() : -1;
-  const weekdayName = WeekdayMap.get(weekDayIndex) || "- - -";
+  const weekdayName = forecast?.dt
+    ? dayjs.unix(forecast.dt).format(WeekdayFormat)
+    : "- - -";
 
   return (
     <button
