@@ -8,7 +8,7 @@ function WeatherCard({ city, pollution, forecast }: WeatherCardProps) {
     ? `${Math.round(forecast.temperature)}°`
     : "- - -";
   const windSpeed = forecast?.wind ? `${Math.round(forecast?.wind)}` : "- - -";
-
+  const airQuality = pollution?.main?.aqi ? pollution?.main?.aqi : "- - -";
   return (
     <div className="weather-card">
       <div className="weather-card__header">
@@ -31,7 +31,7 @@ function WeatherCard({ city, pollution, forecast }: WeatherCardProps) {
       </div>
       <div className="weather-card__footer">
         <span>{windSpeed}</span>
-        <span>{pollution || "- - -"}</span>
+        <span>{airQuality}</span>
       </div>
     </div>
   );

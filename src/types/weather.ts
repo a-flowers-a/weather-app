@@ -31,3 +31,27 @@ export interface ForecastListItem {
   sys: { pod: string };
   dt_txt: string;
 }
+
+export interface ForecastResponse {
+  cod: number;
+  message: number;
+  cnt: number;
+  list: ForecastListItem[];
+  city: {
+    id: number;
+    name: string;
+    coord: { lat: number; lon: number };
+    country: string;
+    population: number;
+    timezone: number;
+    sunrise: number;
+    sunset: number;
+  };
+}
+export enum MainWeatherCondition {
+  Thunderstorm = "thunderstorm",
+  Rain = "rain",
+  Snow = "snow",
+  Clouds = "clouds",
+  Clear = "clear",
+}
