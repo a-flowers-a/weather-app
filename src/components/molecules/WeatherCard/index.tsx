@@ -1,5 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTemperatureHalf } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGaugeSimple,
+  faTemperatureHalf,
+  faWind,
+} from "@fortawesome/free-solid-svg-icons";
+//Components
+import DataIcon from "../DataIcon";
 //Types & consts
 import { WeatherCardProps } from "./types";
 import { IconMap } from "../../../constants/weather";
@@ -31,8 +37,17 @@ function WeatherCard({ city, pollution, forecast }: WeatherCardProps) {
         <FontAwesomeIcon className="weather-card__icon" icon={iconName} />
       </div>
       <div className="weather-card__footer">
-        <span>{windSpeed}</span>
-        <span>{airQuality}</span>
+        <DataIcon
+          containerStyles="weather-card__first-data-icon"
+          description="Wind"
+          iconName={faWind}
+          data={windSpeed}
+        />
+        <DataIcon
+          description="Air quality"
+          iconName={faGaugeSimple}
+          data={`${airQuality}`}
+        />
       </div>
     </div>
   );

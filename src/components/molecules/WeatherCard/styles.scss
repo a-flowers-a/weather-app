@@ -46,5 +46,10 @@
 
   &__footer{
     display: flex;
+    justify-content: center;
+  }
+
+  &__first-data-icon{
+    margin-right: 30px;
   }
 }
