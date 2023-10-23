@@ -1,6 +1,6 @@
 # Weather app challenge
 
-Web frontend app challenge that shows list of weather.
+Web frontend app challenge that shows list of weather for the US capital cities.
 
 <br>
 
@@ -17,3 +17,26 @@ The main structure of the frontend project is:
 6. GlobalStyles: this folder stores styles that are shared among the components. **Note:** SCSS is used to ease this goal.
 
 <br>
+
+## Run app with docker
+
+Run web application with Docker container with Nginx server
+
+Preconditions:
+
+1. Have Docker and docker-compose installed.
+2. Have Docker's deamon running.
+3. Port 8080 should be available
+
+At the terminal in the root folder run the command `docker-compose up -d --build`. This will always build the project's image and run a container for it. Then open your browser on `localhost:8080` and the app should be shown.
+
+To stop the container just run `docker-compose down`, this will also delete the container when it has stopped.
+
+### Run Tests
+
+Preconditions:
+
+1. Be at **root/** path
+2. Install node modules with `npm install`
+
+When tests are also run when the command for coverage is run, owever to check them interactively you can run `npm test` and the menu options for tests will be shown.
