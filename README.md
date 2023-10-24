@@ -1,7 +1,11 @@
 # Weather app challenge
 
-Web frontend app challenge that shows list of weather for the US capital cities.
+Web frontend app challenge that shows list of weather for the selected US capital city.
+<br>
+It shows the current temperature and the wind speed in metric units, as well as the Air Quality Index based on the air pollution.
 
+The shown data is provided by [Open Weather Map](https://home.openweathermap.org/). The API key is included within the .env file in this repo.
+**Note:** this file was pushed into the public repo so that anyone could test. However a secure mean should be used to share this kind of info.
 <br>
 
 This frontend app project uses React library and was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -39,4 +43,7 @@ Preconditions:
 1. Be at **root/** path
 2. Install node modules with `npm install`
 
-When tests are also run when the command for coverage is run, owever to check them interactively you can run `npm test` and the menu options for tests will be shown.
+Run `npm test` and the menu options for tests will be shown.
+
+<br>
+Originally the components and all helpers should have unit tests. However, currently, due to the time restriction, only the helpers and context have unit tests
