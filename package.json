@@ -47,5 +47,19 @@
   },
   "devDependencies": {
     "sass": "^1.69.4"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      ".types.ts",
+      "src/constants/",
+      "src/exampleData/",
+      "src/globalStyles/",
+      "src/pages/",
+      "src/services/",
+      "src/types/",
+      "src/App.tsx",
+      "src/index.tsx",
+      "src/reportWebVitals.ts"
+    ]
   }
 }
