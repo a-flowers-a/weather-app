@@ -15,7 +15,8 @@ import { PollutionResponse } from "../types/pollution";
  */
 export function getForecast(latLong: string): Promise<ForecastResponse> {
   const [lat, lon] = latLong.split(",");
-  const url = `${process.env.REACT_APP_BASE_URL}/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_WE_KEY}`;
+  //Https is not available for pollution
+  const url = `${process.env.REACT_APP_BASE_S_URL}/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_WE_KEY}`;
   const axiosAgent = HttppAgent.getAgent();
   return axiosAgent.doRequest({
     method: "GET",
@@ -30,6 +31,7 @@ export function getForecast(latLong: string): Promise<ForecastResponse> {
  */
 export function getPollution(latLong: string): Promise<PollutionResponse> {
   const [lat, lon] = latLong.split(",");
+  //Https is not available for pollution
   const url = `${process.env.REACT_APP_BASE_URL}/air_pollution/forecast?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WE_KEY}`;
   const axiosAgent = HttppAgent.getAgent();
   return axiosAgent.doRequest({

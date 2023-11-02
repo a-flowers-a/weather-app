@@ -44,17 +44,18 @@ function Home() {
     async (latLon: string) => {
       try {
         setLoader(true);
-        const [weathers, pollutions] = await Promise.all([
-          getForecast(latLon),
-          getPollution(latLon),
-        ]);
+        const weathers = await getForecast(latLon);
+        //pollution has problems because of https when deployed on Https
+        if (process.env.REACT_APP_DEPLOYED === undefined) {
+          const pollutions = await getPollution(latLon);
+          const fiveDaysPollution = getFourDaysPollution(pollutions.list);
+          setPollutionDays(fiveDaysPollution);
+        }
         const fiveWeatherItems = getPlusFiveDaysItems(weathers.list);
         const recCity = weathers?.city?.name || "";
         const fiveDaysWeather = createVisDataStruct(fiveWeatherItems);
-        const fiveDaysPollution = getFourDaysPollution(pollutions.list);
         setCurrentCity(recCity);
         setWeatherDays(fiveDaysWeather);
-        setPollutionDays(fiveDaysPollution);
       } catch (error) {
         console.log("error at handleFetchData>>>", error);
         setShowError(true);
