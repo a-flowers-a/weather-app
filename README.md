@@ -6,6 +6,11 @@ It shows the current temperature and the wind speed in metric units, as well as 
 
 The shown data is provided by [Open Weather Map](https://home.openweathermap.org/). The API key is included within the .env file in this repo.
 **Note:** this file was pushed into the public repo so that anyone could test. However a secure mean should be used to share this kind of info.
+
+[See the app up and running](https://unrivaled-custard-408fd3.netlify.app/)
+
+**Important:** The app is deployed on netlify. Since the pollution API doesn't have an http**s**, this requests are not performed to avoid errors and problems on netlify, so the pollution data will only be shown if you [run this App locally with docker](#run-app-with-docker).
+
 <br>
 
 This frontend app project uses React library and was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
